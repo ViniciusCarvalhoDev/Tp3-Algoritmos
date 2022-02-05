@@ -1,0 +1,4 @@
+﻿  tp03.cpp
+C:\Users\Vinicius\Documents\UFMG\5-periodo\Tp-3\tp03\tp03\tp03.cpp(54,26): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\Vinicius\Documents\UFMG\5-periodo\Tp-3\tp03\tp03\tp03.cpp(58,30): warning C4018: '<': incompatibilidade de signed/unsigned
+  tp03.vcxproj -> C:\Users\Vinicius\Documents\UFMG\5-periodo\Tp-3\tp03\tp03\Debug\tp03.exe
