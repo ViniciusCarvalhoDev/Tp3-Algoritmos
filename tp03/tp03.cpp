@@ -6,6 +6,8 @@
 #define M 6
 using namespace std;
 
+class Matrix { public: int* array; int m_width;  Matrix(int w, int h) : m_width(w), array(new int[w * h]) {} ~Matrix() { delete[] array; } int at(int x, int y) const { return array[index(x, y)]; }; int index(int x, int y) const { return x + m_width * y; } };
+
 // To calculate max path in matrix
 int findMaxPath(int **mat, int linhas, int colunas )
 {
@@ -47,9 +49,40 @@ int findMaxPath(int **mat, int linhas, int colunas )
 // Driver program to check findMaxPath
 int main()
 {
+    
+
     int linhas, colunas;
     cin >> linhas >> colunas;
-    vector<vector<int>> matriz;
+
+    Matrix matriz = Matrix(linhas, colunas);
+
+    for (size_t i = 0; i < linhas; i++)
+    {
+        
+        for (size_t j = 0; j < colunas; j++)
+        {
+            int numero;
+            cin >> numero;
+            
+            matriz.array[matriz.index(i, j)] = numero;
+            
+        }
+
+        
+    }
+
+    for (size_t i = 0; i < linhas; i++)
+    {
+
+        for (size_t j = 0; j < colunas; j++)
+        {
+            cout << matriz.at(i, j) << " ";
+        }
+
+        cout << '\n';
+    }
+
+    /*vector<vector<int>> matriz;
 
     for (size_t i = 0; i < linhas; i++)
     {
@@ -62,7 +95,7 @@ int main()
         }
 
         matriz.push_back(temp);
-    }
+    }*/
 
 
    /* int* matriz = &mat1;
