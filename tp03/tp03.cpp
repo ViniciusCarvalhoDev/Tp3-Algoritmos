@@ -12,26 +12,19 @@ void AtualizaMaximo(Cell* celula, Cell *a, Cell *b, Cell * c = nullptr) {
 
     if (a->valor >= b->valor && c == nullptr || a->valor >= b->valor && a->valor > c->valor)
     {
-        celula->caminho += a->caminho;
+        celula->caminho += a->caminho + " ";
         //a->caminho = "";
     }
     else if (b->valor >= a->valor && c == nullptr || b->valor > a->valor && b->valor > c->valor)
     {
-        celula->caminho += b->caminho;
+        celula->caminho += b->caminho + " ";
        // b->caminho = "";
     }
     else
     {
-        celula->caminho += c->caminho;
+        celula->caminho += c->caminho + " ";
         //c->caminho = "";
     }
-}
-
-template<typename T>
-void pop_front(std::vector<T>& vec)
-{
-    assert(!vec.empty());
-    vec.erase(vec.begin());
 }
 
 // Driver program to check findMaxPath
@@ -86,16 +79,30 @@ int main()
             }
         }
         
-        if (i > 2)
+        if (i > 1)
         {
             mat[i - 2].clear();
         }
     }
 
     int res = 0;
+    int index = 0;
 
-    for (int j = 0; j < colunas; j++)
+    for (int j = 0; j < colunas; j++) {
         res = max(mat[linhas - 1][j].valor, res);
+    }
+
+    for (size_t j = 0; j < colunas; j++)
+    {   
+        if (mat[linhas - 1][j].valor == res )
+        {
+            index = j;
+            break;
+        }
+    }
+    
+    cout << res << endl;
+    cout << mat[linhas - 1][index].caminho;
 
     return 0;
 }
